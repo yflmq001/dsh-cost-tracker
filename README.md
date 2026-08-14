@@ -3,6 +3,8 @@
 Token cost tracking for DeepSeek Harness, with per-model configurable pricing and
 peak/off-peak rates.
 
+![dsh-cost-tracker: per-session cost bar and the /cost command](assets/screenshot.jpg)
+
 ## What it does
 
 - Prices every finalized LLM call (`assistant/message` usage) against a
