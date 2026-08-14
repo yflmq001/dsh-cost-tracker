@@ -75,6 +75,20 @@ The plugin registers the `cost` projection:
 Cache writes are priced at the miss rate (providers bill the write at the miss
 tier; the written tokens become cache hits on a later call).
 
+## Billing correctness
+
+Two choices keep the numbers honest:
+
+- **Cache writes are billed at the miss rate, not the hit rate.** Providers
+  charge cache writes at the cache-miss input tier (e.g. DeepSeek $0.14/M vs
+  $0.0028/M hit) — pricing a write as a hit undercounts by ~50x whenever a
+  session writes fresh context. Some cost plugins fold cache writes into the
+  hit bucket; this plugin does not.
+- **Unknown models are never silently priced.** A model with no pricing entry
+  is surfaced as "unconfigured" with a placeholder in the projection and UI,
+  so a guessed default can't hide in your bill. You add the price, or you see
+  the gap.
+
 ## Known Limitations and Deferred Work
 
 - Per-session cost is a projection over the durable log (replayed); the
