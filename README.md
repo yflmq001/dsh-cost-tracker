@@ -1,5 +1,7 @@
 # dsh-cost-tracker
 
+> 🇨🇳 [中文说明](README.zh.md)
+
 Token cost tracking for DeepSeek Harness, with per-model configurable pricing and
 peak/off-peak rates.
 
