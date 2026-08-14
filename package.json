@@ -1,7 +1,7 @@
 {
   "name": "dsh-cost-tracker",
   "description": "Token cost tracking with per-model configurable pricing and peak/off-peak rates for the DeepSeek Harness",
-  "version": "0.1.0-rc.1",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
