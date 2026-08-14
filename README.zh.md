@@ -15,21 +15,13 @@ DeepSeek Harness 的 Token 成本追踪插件：按模型配置价格，支持�
 
 ## 安装
 
-从 GitHub 直接安装到 dsh profile：
+从 GitHub 直接安装到 dsh profile —— 插件自带 `dsh.bundle` 层，`dsh plugin add` 装完即自动启用：
 
 ```sh
 dsh plugin --profile web add github:yflmq001/dsh-cost-tracker
 ```
 
-然后在 profile 的 `cordis.patch.yml` 里加上插件（本插件不提供 `dsh.bundle` 层，`dsh plugin add` 只会把它装成普通依赖，需要手动启用）：
-
-```yaml
-- insert:
-    - id: cost-tracker
-      name: 'dsh-cost-tracker'
-      config:
-        models: {}
-```
+价格初始为空（`models: {}`），在插件的 `config` 里填模型价格（见下文）。要覆盖默认值，在 profile 自己的 `cordis.patch.yml` 里加一行 `cost-tracker`——后应用的层按行 id 胜出。
 
 跨会话账单通过 dsh 的 storage domain 持久化；没有配置 storage 后端的 profile 只会在内存中记账。
 

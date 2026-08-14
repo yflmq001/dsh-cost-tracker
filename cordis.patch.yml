@@ -1,0 +1,9 @@
+# dsh-cost-tracker bundle layer: inserts the cost-tracker plugin row.
+# `dsh plugin add` applies this when a profile lists this bundle; the
+# profile's own cordis.patch.yml and any --patch overlays still win.
+
+- insert:
+    - id: cost-tracker
+      name: 'dsh-cost-tracker'
+      config:
+        models: {}

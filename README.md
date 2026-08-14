@@ -20,23 +20,16 @@ peak/off-peak rates.
 
 ## Installation
 
-Install into a dsh profile straight from GitHub:
+Install into a dsh profile straight from GitHub — the plugin ships a
+`dsh.bundle` layer, so `dsh plugin add` enables it automatically:
 
 ```sh
 dsh plugin --profile web add github:yflmq001/dsh-cost-tracker
 ```
 
-Then add the plugin to that profile's `cordis.patch.yml` (the plugin ships no
-`dsh.bundle` layer, so `dsh plugin add` installs it as a plain dependency and
-you enable it yourself):
-
-```yaml
-- insert:
-    - id: cost-tracker
-      name: 'dsh-cost-tracker'
-      config:
-        models: {}
-```
+Pricing starts empty (`models: {}`); fill in your models under the plugin's
+`config` (see below). To override defaults, add a `cost-tracker` row to the
+profile's own `cordis.patch.yml` — later layers win by row id.
 
 The cross-session bill persists through dsh's storage domain; a profile
 without a storage backend keeps the bill in memory only.

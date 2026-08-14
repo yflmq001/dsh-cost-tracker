@@ -23,6 +23,7 @@
       "types": "./lib/types/client.d.ts",
       "default": "./lib/client.js"
     },
+    "./cordis.patch.yml": "./cordis.patch.yml",
     "./src/*": "./src/*",
     "./package.json": "./package.json"
   },
@@ -34,7 +35,10 @@
     "lib/types/**/*.js",
     "lib/types/**/*.d.ts",
     "src",
+    "cordis.patch.yml",
+    "assets",
     "README.md",
+    "README.zh.md",
     "LICENSE"
   ],
   "peerDependencies": {
@@ -66,6 +70,9 @@
         "@deepseek-ai/dsh-client-ui-slots"
       ],
       "platform": "web"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
     }
   }
 }
