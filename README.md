@@ -2,6 +2,8 @@
 
 > 🇨🇳 [中文说明](README.zh.md)
 
+[![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
+
 Token cost tracking for DeepSeek Harness, with per-model configurable pricing and
 peak/off-peak rates.
 
