@@ -6,7 +6,7 @@
 
 DeepSeek Harness 的 Token 成本追踪插件：按模型配置价格，支持缓存命中/未命中分桶计费，以及高峰/低谷时段价格。
 
-![dsh-cost-tracker：会话成本条与 /cost 命令](assets/screenshot.jpg)
+![dsh-cost-tracker：会话成本条与 /cost 命令](assets/screenshots/hero.png)
 
 ## 功能
 
