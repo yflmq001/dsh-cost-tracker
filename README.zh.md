@@ -25,6 +25,8 @@ dsh plugin --profile web add github:yflmq001/dsh-cost-tracker
 
 价格初始为空（`models: {}`），在插件的 `config` 里填模型价格（见下文）。要覆盖默认值，在 profile 自己的 `cordis.patch.yml` 里加一行 `cost-tracker`——后应用的层按行 id 胜出。
 
+> ⚠️ 覆盖时一定要用条目的 **`id`**（`cost-tracker`），**不能用 `name`**。Cordis 的非 insert 补丁按 `id` 定位目标行，用 `name` 写的覆盖行会被静默丢弃，价格保持为 `models: {}` 不生效。
+
 跨会话账单通过 dsh 的 storage domain 持久化；没有配置 storage 后端的 profile 只会在内存中记账。
 
 ## 配置
@@ -32,7 +34,7 @@ dsh plugin --profile web add github:yflmq001/dsh-cost-tracker
 价格在插件的 `config` 里配置（Schemastery 校验）。所有价格单位是**元 / 百万 token**，手动填写（不自动抓取）。
 
 ```yaml
-- name: 'dsh-cost-tracker'
+- id: cost-tracker
   config:
     models:
       deepseek-v4-flash:
